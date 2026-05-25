@@ -69,16 +69,16 @@ public final class Matches<X> extends TypeSafeMatcher<Matcher<? super X>> {
 
     @Override
     public void describeTo(final Description desc) {
-        desc.appendValue(this.args);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     protected boolean matchesSafely(final Matcher<? super X> matcher) {
-        return matcher.matches(this.args);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     protected void describeMismatchSafely(final Matcher<? super X> matcher, final Description dsc) {
-        matcher.describeTo(dsc);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

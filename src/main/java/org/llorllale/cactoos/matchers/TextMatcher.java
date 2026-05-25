@@ -52,11 +52,7 @@ public final class TextMatcher extends TypeSafeMatcher<Text> {
      * @param func Function that compares actual to expected value.
      * @param expected The description of the matcher's expected text.
      */
-    public TextMatcher(
-        final Text text,
-        final BiFunc<String, String, Boolean> func,
-        final String expected
-    ) {
+    public TextMatcher(final Text text, final BiFunc<String, String, Boolean> func, final String expected) {
         this(text, func, expected, "was Text with value");
     }
 
@@ -68,25 +64,8 @@ public final class TextMatcher extends TypeSafeMatcher<Text> {
      * @param actual The prefix of the actual text.
      * @checkstyle ParameterNumberCheck (2 lines)
      */
-    public TextMatcher(
-        final Text text,
-        final BiFunc<String, String, Boolean> func,
-        final String expected,
-        final String actual
-    ) {
-        this(
-            new MatcherOf<>(
-                act -> func.apply(act, text.asString()),
-                desc -> desc
-                    .appendText(expected)
-                    .appendText(" ")
-                    .appendValue(text.asString()),
-                (act, desc) -> desc
-                    .appendText(actual)
-                    .appendText(" ")
-                    .appendValue(act)
-            )
-        );
+    public TextMatcher(final Text text, final BiFunc<String, String, Boolean> func, final String expected, final String actual) {
+        this(new MatcherOf<>(act -> func.apply(act, text.asString()), desc -> desc.appendText(expected).appendText(" ").appendValue(text.asString()), (act, desc) -> desc.appendText(actual).appendText(" ").appendValue(act)));
     }
 
     /**
@@ -100,16 +79,16 @@ public final class TextMatcher extends TypeSafeMatcher<Text> {
 
     @Override
     public void describeTo(final Description desc) {
-        desc.appendDescriptionOf(this.matcher);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     protected boolean matchesSafely(final Text text) {
-        return this.matcher.matches(new UncheckedText(text).asString());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     protected void describeMismatchSafely(final Text text, final Description desc) {
-        this.matcher.describeMismatch(new UncheckedText(text).asString(), desc);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

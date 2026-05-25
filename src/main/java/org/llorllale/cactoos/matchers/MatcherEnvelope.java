@@ -53,16 +53,16 @@ public abstract class MatcherEnvelope<T> extends BaseMatcher<T> {
 
     @Override
     public final void describeTo(final Description desc) {
-        this.origin.describeTo(desc);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final boolean matches(final Object actual) {
-        return this.origin.matches(actual);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public final void describeMismatch(final Object item, final Description description) {
-        this.origin.describeMismatch(item, description);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

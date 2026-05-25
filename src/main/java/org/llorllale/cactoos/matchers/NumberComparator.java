@@ -51,9 +51,7 @@ final class NumberComparator implements Comparator<Number>, Serializable {
      * Ctor.
      * @param comparator Comparator.
      */
-    private NumberComparator(
-        final Comparator<? super Number> comparator
-    ) {
+    private NumberComparator(final Comparator<? super Number> comparator) {
         this.comparator = comparator;
     }
 
@@ -61,22 +59,16 @@ final class NumberComparator implements Comparator<Number>, Serializable {
      * Ctor.
      */
     NumberComparator() {
-        this(
-            Comparator
-                .comparing(Number::doubleValue)
-                .thenComparing(Number::intValue)
-                .thenComparing(Number::longValue)
-                .thenComparing(Number::floatValue)
-        );
+        this(Comparator.comparing(Number::doubleValue).thenComparing(Number::intValue).thenComparing(Number::longValue).thenComparing(Number::floatValue));
     }
 
     @Override
     public int compare(final Number first, final Number second) {
-        return this.comparator.compare(first, second);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "NumberComparator";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

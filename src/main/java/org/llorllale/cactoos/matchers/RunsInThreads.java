@@ -87,44 +87,12 @@ public final class RunsInThreads<T> extends TypeSafeDiagnosingMatcher<Func<? sup
     }
 
     @Override
-    public boolean matchesSafely(
-        final Func<? super T, Boolean> func,
-        final Description desc
-    ) {
-        final ExecutorService service = Executors.newFixedThreadPool(
-            this.total
-        );
-        final CountDownLatch latch = new CountDownLatch(1);
-        final List<Future<Boolean>> futures = new ArrayList<>(this.total);
-        final Callable<Boolean> task = () -> {
-            latch.await();
-            return func.apply(this.input);
-        };
-        for (int thread = 0; thread < this.total; ++thread) {
-            futures.add(service.submit(task));
-        }
-        latch.countDown();
-        final int matching = new SumOf(
-            new Mapped<>(
-                f -> new Ternary<>(f.get(), 1, 0).value(),
-                futures
-            )
-        ).intValue();
-        service.shutdown();
-        if (matching != this.total) {
-            desc
-                .appendText("ran successfuly in ")
-                .appendValue(matching)
-                .appendText(" threads");
-        }
-        return matching == this.total;
+    public boolean matchesSafely(final Func<? super T, Boolean> func, final Description desc) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void describeTo(final Description description) {
-        description
-            .appendText("runs in ")
-            .appendValue(this.total)
-            .appendText(" threads successfuly");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

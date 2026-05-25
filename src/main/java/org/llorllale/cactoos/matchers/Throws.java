@@ -86,10 +86,7 @@ public final class Throws<T> extends TypeSafeDiagnosingMatcher<Scalar<? extends 
      * @param msg The expected exception message.
      * @param type The expected exception type.
      */
-    public Throws(
-        final Matcher<String> msg,
-        final Class<? extends Throwable> type
-    ) {
+    public Throws(final Matcher<String> msg, final Class<? extends Throwable> type) {
         super();
         this.msg = msg;
         this.type = type;
@@ -97,41 +94,12 @@ public final class Throws<T> extends TypeSafeDiagnosingMatcher<Scalar<? extends 
 
     @Override
     public void describeTo(final Description dsc) {
-        dsc
-            .appendText("Exception has type '")
-            .appendText(this.type.getName())
-            .appendText("' and message matches ")
-            .appendDescriptionOf(this.msg);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    @SuppressWarnings(
-        { "PMD.AvoidCatchingGenericException", "PMD.AvoidCatchingThrowable" }
-    )
-    protected boolean matchesSafely(
-        final Scalar<? extends T> obj,
-        final Description dsc
-    ) {
-        // @checkstyle IllegalCatchCheck (20 lines)
-        boolean matches;
-        try {
-            obj.value();
-            matches = false;
-            dsc.appendText("The exception wasn't thrown.");
-        } catch (final Throwable cause) {
-            if (this.type.isAssignableFrom(cause.getClass())
-                && this.msg.matches(cause.getMessage())) {
-                matches = true;
-            } else {
-                dsc
-                    .appendText("Exception has type '")
-                    .appendText(cause.getClass().getName())
-                    .appendText("' and message '")
-                    .appendText(cause.getMessage())
-                    .appendText("'");
-                matches = false;
-            }
-        }
-        return matches;
+    @SuppressWarnings({ "PMD.AvoidCatchingGenericException", "PMD.AvoidCatchingThrowable" })
+    protected boolean matchesSafely(final Scalar<? extends T> obj, final Description dsc) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

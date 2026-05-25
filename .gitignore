@@ -8,3 +8,8 @@ target/
 .recommenders
 /nbproject/
 /dependency-reduced.pom
+
+.aider*
+logs/
+.commit0_scripts/
+.github/workflows/

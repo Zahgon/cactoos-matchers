@@ -35,8 +35,7 @@ import java.util.Comparator;
  * @param <T> Type of comparable object.
  * @since 1.0.0
  */
-final class NaturalOrdering<T extends Comparable<? super T>> implements
-    Comparator<T>, Serializable {
+final class NaturalOrdering<T extends Comparable<? super T>> implements Comparator<T>, Serializable {
 
     /**
      * Serial version UID.
@@ -45,11 +44,11 @@ final class NaturalOrdering<T extends Comparable<? super T>> implements
 
     @Override
     public int compare(final T first, final T second) {
-        return first.compareTo(second);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return "NaturalOrdering";
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

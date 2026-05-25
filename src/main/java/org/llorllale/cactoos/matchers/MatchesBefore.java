@@ -54,6 +54,7 @@ import org.hamcrest.TypeSafeDiagnosingMatcher;
  */
 @SuppressWarnings("PMD.AvoidCatchingGenericException")
 public final class MatchesBefore<T> extends TypeSafeDiagnosingMatcher<T> {
+
     /**
      * Time unit.
      */
@@ -82,34 +83,12 @@ public final class MatchesBefore<T> extends TypeSafeDiagnosingMatcher<T> {
 
     @Override
     public void describeTo(final Description desc) {
-        desc
-            .appendDescriptionOf(this.matcher)
-            .appendText(" runs in less than ")
-            .appendValue(this.millisec)
-            .appendText(" ")
-            .appendText(MatchesBefore.TIME_UNIT);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     // @checkstyle ProtectedMethodInFinalClassCheck (3 lines)
     @Override
-    protected boolean matchesSafely(
-        final T item, final Description desc
-    ) {
-        boolean matches = false;
-        try {
-            matches = new Timed<>(this.matcher::matches, this.millisec).apply(item);
-            if (!matches) {
-                this.matcher.describeMismatch(item, desc);
-            }
-        } catch (final TimeoutException texc) {
-            desc.appendText("Timeout after ")
-                .appendValue(this.millisec)
-                .appendText(" ")
-                .appendText(MatchesBefore.TIME_UNIT);
-            // @checkstyle IllegalCatchCheck (1 line)
-        } catch (final Exception ex) {
-            throw new IllegalStateException(ex);
-        }
-        return matches;
+    protected boolean matchesSafely(final T item, final Description desc) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

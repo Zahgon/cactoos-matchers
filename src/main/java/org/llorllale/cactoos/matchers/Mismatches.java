@@ -56,8 +56,7 @@ import org.hamcrest.TypeSafeDiagnosingMatcher;
  * @since 1.0.0
  * @checkstyle ProtectedMethodInFinalClassCheck (200 lines)
  */
-public final class Mismatches<X> extends
-    TypeSafeDiagnosingMatcher<Matcher<? super X>> {
+public final class Mismatches<X> extends TypeSafeDiagnosingMatcher<Matcher<? super X>> {
 
     /**
      * Multiline start.
@@ -85,11 +84,7 @@ public final class Mismatches<X> extends
      * @param expected The expected portion of the mismatch message.
      * @param actual The actual portion of the mismatch message.
      */
-    public Mismatches(
-        final X args,
-        final String expected,
-        final String actual
-    ) {
+    public Mismatches(final X args, final String expected, final String actual) {
         this(args, new TextOf(expected), new TextOf(actual));
     }
 
@@ -99,20 +94,8 @@ public final class Mismatches<X> extends
      * @param expected The expected portion of the mismatch message.
      * @param actual The actual portion of the mismatch message.
      */
-    public Mismatches(
-        final X args,
-        final Text expected,
-        final Text actual
-    ) {
-        this(
-            args,
-            new Joined(
-                new FormattedText("%n"),
-                new TextOf(""),
-                new Concatenated(new TextOf("Expected: "), expected),
-                new Concatenated(new TextOf("     but: "), actual)
-            )
-        );
+    public Mismatches(final X args, final Text expected, final Text actual) {
+        this(args, new Joined(new FormattedText("%n"), new TextOf(""), new Concatenated(new TextOf("Expected: "), expected), new Concatenated(new TextOf("     but: "), actual)));
     }
 
     /**
@@ -128,42 +111,11 @@ public final class Mismatches<X> extends
 
     @Override
     public void describeTo(final Description desc) {
-        desc.appendText("mismatches ")
-            .appendValue(this.args)
-            .appendText(" with message")
-            .appendText(System.lineSeparator())
-            .appendText(Mismatches.ML_START)
-            .appendText(new UncheckedText(this.message).asString())
-            .appendText(System.lineSeparator())
-            .appendText(Mismatches.ML_END);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    protected boolean matchesSafely(
-        final Matcher<? super X> matcher,
-        final Description dsc
-    ) {
-        boolean mismatch;
-        try {
-            new Assertion<>("", this.args, matcher).affirm();
-            mismatch = false;
-            dsc
-                .appendText("matched ")
-                .appendValue(this.args);
-        } catch (final AssertionError err) {
-            mismatch = err.getMessage().equals(
-                new UncheckedText(this.message).asString()
-            );
-            if (!mismatch) {
-                dsc
-                    .appendText("mismatched with message")
-                    .appendText(System.lineSeparator())
-                    .appendText(Mismatches.ML_START)
-                    .appendText(err.getMessage())
-                    .appendText(System.lineSeparator())
-                    .appendText(Mismatches.ML_END);
-            }
-        }
-        return mismatch;
+    protected boolean matchesSafely(final Matcher<? super X> matcher, final Description dsc) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

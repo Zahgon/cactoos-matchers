@@ -90,9 +90,7 @@ public final class Assertion<T> {
      * @param test Object under test.
      * @param matcher Tester.
      */
-    public Assertion(
-        final String msg, final T test, final Matcher<? super T> matcher
-    ) {
+    public Assertion(final String msg, final T test, final Matcher<? super T> matcher) {
         this.msg = msg;
         this.test = test;
         this.matcher = matcher;
@@ -103,17 +101,6 @@ public final class Assertion<T> {
      * @throws AssertionError if this assertion is refuted
      */
     public void affirm() throws AssertionError {
-        if (!this.matcher.matches(this.test)) {
-            final Description text = new StringDescription();
-            text
-                .appendText(this.msg)
-                .appendText(System.lineSeparator())
-                .appendText("Expected: ")
-                .appendDescriptionOf(this.matcher)
-                .appendText(System.lineSeparator())
-                .appendText("     but: ");
-            this.matcher.describeMismatch(this.test, text);
-            throw new AssertionError(text.toString());
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

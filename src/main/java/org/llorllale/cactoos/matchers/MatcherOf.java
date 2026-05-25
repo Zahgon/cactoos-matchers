@@ -68,11 +68,7 @@ public final class MatcherOf<T> extends TypeSafeMatcher<T> {
      * @param mismatch Generates a description for situation when an actual
      *  object does not match to the expected one
      */
-    public MatcherOf(
-        final Func<? super T, Boolean> match,
-        final Proc<Description> description,
-        final BiProc<? super T, Description> mismatch
-    ) {
+    public MatcherOf(final Func<? super T, Boolean> match, final Proc<Description> description, final BiProc<? super T, Description> mismatch) {
         this.match = match;
         this.description = description;
         this.mismatch = mismatch;
@@ -80,19 +76,16 @@ public final class MatcherOf<T> extends TypeSafeMatcher<T> {
 
     @Override
     public void describeTo(final Description desc) {
-        new UncheckedProc<>(this.description).exec(desc);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void describeMismatchSafely(
-        final T item,
-        final Description desc
-    ) {
-        new UncheckedBiProc<>(this.mismatch).exec(item, desc);
+    public void describeMismatchSafely(final T item, final Description desc) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean matchesSafely(final T item) {
-        return new UncheckedFunc<>(this.match).apply(item);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

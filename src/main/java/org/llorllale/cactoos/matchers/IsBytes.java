@@ -81,23 +81,11 @@ public final class IsBytes extends TypeSafeDiagnosingMatcher<Bytes> {
 
     @Override
     public void describeTo(final Description description) {
-        description.appendValue(new IterableOfBytes(this.bytes));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    protected boolean matchesSafely(
-        final Bytes item, final Description description
-    ) {
-        final byte[] presented = new UncheckedBytes(item).asBytes();
-        final byte[] expected = this.bytes.asBytes();
-        final boolean result;
-        if (Arrays.equals(presented, expected)) {
-            result = true;
-        } else {
-            description.appendValue(new IterableOfBytes(presented));
-            result = false;
-        }
-        return result;
+    protected boolean matchesSafely(final Bytes item, final Description description) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }
